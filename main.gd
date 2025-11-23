@@ -3,15 +3,17 @@ extends Node2D
 @export var frequency = 3
 var score = 0
 var ded = false
+var high_score = 0
 
 func _ready():
 	$BlockTimer.wait_time = frequency
 	$Stopwatch.start()
-	new_game()
 
 func _process(delta):
 	#_block_mover()
-	pass
+	if Input.is_action_just_released("restart"):
+		print("hi")
+		new_game()
 
 func _on_timeout():
 	var block = block_scene.instantiate()
@@ -38,12 +40,14 @@ func new_game():
 	$HUD/ScoreLabel.text = "0"
 	score = 0
 	$Player.start($StartPosition.position)
+	$Stopwatch.start()
+	$BlockTimer.start()
+	$HUD/HighScore.text = "High Score: " + str(high_score)
 
 func game_over():
 	ded = true
+	if(score > high_score):
+		high_score = score
 	$Stopwatch.stop()
 	$BlockTimer.stop()
 	$HUD/ScoreLabel.text = "GAME OVER\nPress ENTER to try again"
-	if Input.is_action_just_released("restart"):
-		print("hi")
-		new_game()
