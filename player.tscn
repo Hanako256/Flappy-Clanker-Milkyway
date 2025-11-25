@@ -1,25 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpi0lsduab1r4"]
+[gd_scene load_steps=9 format=3 uid="uid://bpi0lsduab1r4"]
 
 [ext_resource type="Script" uid="uid://dxtyob04vigya" path="res://player.gd" id="1_sweqy"]
-[ext_resource type="Texture2D" uid="uid://cf7yrot3ftk38" path="res://sprites/Player.png" id="2_sweqy"]
-[ext_resource type="Texture2D" uid="uid://byatnhe0qqjwy" path="res://sprites/Player Mid-Flap.png" id="3_2hs0m"]
-[ext_resource type="Texture2D" uid="uid://cyayjkbroovrp" path="res://sprites/Player Flap.png" id="4_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://bn81nf8hbvdei" path="res://playerJump.png" id="5_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bot38nikulcco" path="res://sprites/CyberPlayerIdle1.png" id="2_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://svq4akujv4i8" path="res://sprites/CyberPlayerIdle2.png" id="3_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://m8kk8cdxdah1" path="res://sprites/CyberPlayerIdle3.png" id="4_dw050"]
+[ext_resource type="Texture2D" uid="uid://bkqt3onirrvrf" path="res://sprites/CyberPlayerJump1.png" id="5_b26j0"]
+[ext_resource type="Texture2D" uid="uid://pl1eenlv0try" path="res://sprites/CyberPlayerJump2.png" id="6_n7ghd"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_sweqy")
+"texture": ExtResource("2_2hs0m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2hs0m")
+"texture": ExtResource("3_1jxqw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_1jxqw")
+"texture": ExtResource("4_dw050")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2hs0m")
+"texture": ExtResource("3_1jxqw")
 }],
 "loop": true,
 "name": &"default",
@@ -27,7 +28,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_2hs0m")
+"texture": ExtResource("5_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_b26j0")
 }],
 "loop": true,
 "name": &"jump",
@@ -45,7 +52,6 @@ metadata/_edit_group_ = true
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"jump"
 
 [node name="Collisions" type="CollisionShape2D" parent="."]
 position = Vector2(29, 2)
