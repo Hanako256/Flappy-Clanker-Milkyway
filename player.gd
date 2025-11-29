@@ -9,6 +9,9 @@ func _ready():
 	screenSize = get_viewport_rect().size
 	$Animation.play("default")
 	velocity = (Vector2.ZERO)
+	$Marker2D.position.x = $Animation.position.x + 60
+	$Marker2D.position.y = $Animation.position.y - 10
+	$Line.position = $Marker2D.position
 
 func _process(delta):
 	if Input.is_action_just_pressed("jump"):
@@ -19,15 +22,15 @@ func _process(delta):
 		$AnimationTimer.start(0.5)
 	else:
 		velocity.y += (jumpStrength * 1.5) * delta
-		
-	#if velocity.y < 0:
-		#$Animation.play("jump")
-		##velocity = velocity.normalized() #This line was from the docs tutorial, unsure if I have to use it or not
-	#else:
-		#$Animation.play("default")
+	
+	if Input.is_action_just_pressed("grapple"):
+		$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
+		var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
+		$Line.rotation = move_toward(rotation, angle, delta)
+		print($Animation.position, " ", $Cursor.position, " ", $Line.scale.y)
+	
 	position += velocity * delta
-	#print(velocity.y)
-	#position = position.clamp(Vector2.ZERO, screenSize)
+	$Cursor.position = get_local_mouse_position()
 
 
 func _on_animation_timeout():
