@@ -24,10 +24,15 @@ func _process(delta):
 		velocity.y += (jumpStrength * 1.5) * delta
 	
 	if Input.is_action_just_pressed("grapple"):
-		$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
-		var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
-		$Line.rotation = move_toward(rotation, angle, delta)
-		print($Animation.position, " ", $Cursor.position, " ", $Line.scale.y)
+		#$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
+		#var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
+		#$Line.rotation = move_toward(rotation, angle, delta)
+		#print($Animation.position, " ", $Cursor.position, " ", $Line.scale.y)
+		velocity.y =  0
+		$Animation.position.x = $Cursor.position.x
+		$Animation.position.y = $Cursor.position.y
+		$Collisions.position.x = $Cursor.position.x
+		$Collisions.position.y = $Cursor.position.y
 	
 	position += velocity * delta
 	$Cursor.position = get_local_mouse_position()
