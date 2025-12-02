@@ -1,9 +1,10 @@
 extends Node2D
 @export var block_scene: PackedScene
-@export var frequency = 3
+@export var frequency = 2
 var score = 0
 var ded = false
 var high_score = 0
+var scale_max = 20
 
 func _ready():
 	$BlockTimer.wait_time = frequency
@@ -42,9 +43,14 @@ func _on_timeout():
 	block2.position.x = 700
 	block2.position.y = -450
 	
-	if(block.scale_y > 20 and block2.scale_y > 20):
-		block.scale_y = 25
-		block2.scale_y = 25
+	if(block.scale_y > scale_max and block2.scale_y > scale_max):
+		block.scale_y = scale_max
+		block2.scale_y = scale_max
+	
+	if(block.scale_y < 5):
+		block.scale_y = 5
+	if(block2.scale_y < 5):
+		block2.scale_y = 5
 	
 	add_child(block)
 	add_child(block2)
@@ -62,6 +68,7 @@ func new_game():
 	$Player.start($StartPosition.position)
 	$Stopwatch.start()
 	$BlockTimer.start()
+	$Player/Timer.start()
 	$HUD/HighScore.text = "High Score: " + str(high_score)
 	$LevelTheme.play()
 

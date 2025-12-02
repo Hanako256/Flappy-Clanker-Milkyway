@@ -16,3 +16,5 @@ shape = SubResource("RectangleShape2D_xfwl5")
 [node name="Block" type="Sprite2D" parent="."]
 position = Vector2(489, 447)
 texture = ExtResource("1_im0tn")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

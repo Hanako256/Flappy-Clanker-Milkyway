@@ -1,7 +1,7 @@
 extends Area2D
 signal hit
 
-@export var jumpStrength = 200
+@export var jumpStrength = 300
 var screenSize
 var velocity
 
@@ -14,28 +14,37 @@ func _ready():
 	$Line.position = $Marker2D.position
 
 func _process(delta):
+	#if Input.is_action_just_pressed("jump"):
+		#$JumpSound.play()
+		#$Animation.play("jump")
+		##print($Animation.position.y)
+		#velocity.y = -jumpStrength
+		#$AnimationTimer.start(0.5)
+	#else:
+		#velocity.y += (jumpStrength * 1.5) * delta
 	if Input.is_action_just_pressed("jump"):
 		$JumpSound.play()
 		$Animation.play("jump")
 		#print($Animation.position.y)
-		velocity.y = -jumpStrength
-		$AnimationTimer.start(0.5)
-	else:
-		velocity.y += (jumpStrength * 1.5) * delta
-	
+		#$AnimationTimer.start(0.5)
+		if(velocity.y >= 0):
+			velocity.y = -jumpStrength
+		else:
+			velocity.y = jumpStrength
 	if Input.is_action_just_pressed("grapple"):
-		#$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
-		#var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
-		#$Line.rotation = move_toward(rotation, angle, delta)
-		#print($Animation.position, " ", $Cursor.position, " ", $Line.scale.y)
-		velocity.y =  0
-		$Animation.position.x = $Cursor.position.x
-		$Animation.position.y = $Cursor.position.y
-		$Collisions.position.x = $Cursor.position.x
-		$Collisions.position.y = $Cursor.position.y
+		$Timer.start()
+		velocity.y = 0
+	#if Input.is_action_just_pressed("grapple"):
+		##$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
+		##var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
+		##$Line.rotation = move_toward(rotation, angle, delta)
+		##print($Animation.position, " ", $Cursor.position, " ", $Line.scale.y)
+		#velocity.y =  0
+		#$Animation.position.y = $Cursor.position.y
+		#$Collisions.position.y = $Cursor.position.y
 	
 	position += velocity * delta
-	$Cursor.position = get_local_mouse_position()
+	#$Cursor.position.y = get_local_mouse_position().y
 
 
 func _on_animation_timeout():
@@ -50,3 +59,8 @@ func start(pos):
 	position = pos
 	show()
 	$Collisions.disabled = false
+
+
+func _on_timer_timeout():
+	if velocity.y == 0:
+		velocity.y = jumpStrength
