@@ -1,6 +1,6 @@
 extends Node2D
 @export var block_scene: PackedScene
-@export var frequency = 2
+@export var frequency = 0.8
 var score = 0
 var ded = false
 var high_score = 0
@@ -19,7 +19,7 @@ func _process(delta):
 	if($Background.position.x <= -950):
 		$Background.position.x = 2500
 	else:
-		$Background.position.x -= 5
+		$Background.position.x -= 3
 	
 	if(score < 10):
 		$HUD/ScoreLabel.label_settings.font_color = Color.GHOST_WHITE

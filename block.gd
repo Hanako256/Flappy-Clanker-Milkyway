@@ -9,11 +9,11 @@ func _ready():
 	
 func _process(delta):
 	var velocity = (Vector2.ZERO)
-	velocity.x -= 100
+	velocity.x -= 300
 	position += velocity * delta
-	if($Block.position.x < 480):
-		queue_free()
-		print("wa")
+	#if($Block.position.x < 480):
+		#queue_free()
+		#print("wa")
 
 func block_killer(boo):
 	if (boo == true):
