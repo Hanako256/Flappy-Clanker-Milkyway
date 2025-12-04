@@ -61,6 +61,9 @@ func _on_stopwatch_timeout():
 	
 func new_game():
 	ded = false
+	$HUD/HoverButton.visible = true;
+	$HUD/RestartButton.visible = true;
+	$HUD/SwitchButton.visible = true;
 	$HUD/ScoreLabel.text = "0"
 	score = 0
 	$Player.velocity.x = 0

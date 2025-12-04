@@ -22,7 +22,7 @@ func _process(delta):
 		#$AnimationTimer.start(0.5)
 	#else:
 		#velocity.y += (jumpStrength * 1.5) * delta
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("switch"):
 		$JumpSound.play()
 		$Animation.play("jump")
 		#print($Animation.position.y)
@@ -31,10 +31,10 @@ func _process(delta):
 			velocity.y = -jumpStrength
 		else:
 			velocity.y = jumpStrength
-	if Input.is_action_just_pressed("grapple"):
+	if Input.is_action_just_pressed("hover"):
 		$Timer.start()
 		velocity.y = 0
-	#if Input.is_action_just_pressed("grapple"):
+	#if Input.is_action_just_pressed("hover"):
 		##$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
 		##var angle = atan2($Cursor.position.x - $Animation.position.x, $Cursor.position.y - $Animation.position.y)* 180 / PI
 		##$Line.rotation = move_toward(rotation, angle, delta)

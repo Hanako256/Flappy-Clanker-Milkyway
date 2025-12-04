@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnjyv2rugb8i5"]
+
+[ext_resource type="Script" uid="uid://bgiu7o64asnn1" path="res://menu.gd" id="1_ouk20"]
+[ext_resource type="Texture2D" uid="uid://bc7wvy3niq024" path="res://sprites/cursor2.png" id="2_mae5d"]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource("1_ouk20")
+
+[node name="Cursor2" type="Sprite2D" parent="."]
+position = Vector2(52, 296)
+texture = ExtResource("2_mae5d")
+centered = false
+
+[node name="Start" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 356.0
+offset_right = 430.0
+offset_bottom = 467.0
+theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
+theme_override_font_sizes/font_size = 80
+text = "START"
+
+[node name="Settings" type="Label" parent="."]
+offset_left = 23.0
+offset_top = 467.0
+offset_right = 280.0
+offset_bottom = 522.0
+theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Settings"
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 20.0
+offset_top = 536.0
+offset_right = 277.0
+offset_bottom = 591.0
+theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Controls"
+
+[node name="Display" type="Label" parent="."]
+offset_left = 585.0
+offset_top = 29.0
+offset_right = 1102.0
+offset_bottom = 621.0
+theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "Arrow keys (up/down) and Z to select something"
+autowrap_mode = 2

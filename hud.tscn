@@ -1,6 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2opd5ot2w7vf"]
+[gd_scene load_steps=9 format=3 uid="uid://c2opd5ot2w7vf"]
 
 [ext_resource type="Script" uid="uid://rlxxxlp4dg0y" path="res://hud.gd" id="1_37p78"]
+[ext_resource type="Texture2D" uid="uid://c8bf805f8eydc" path="res://sprites/jump1.png" id="2_a2258"]
+[ext_resource type="Texture2D" uid="uid://cpi4gnc1m721t" path="res://sprites/jump2.png" id="3_1xsix"]
+[ext_resource type="Texture2D" uid="uid://by4dnkxc55oiq" path="res://sprites/hover1.png" id="4_rftc2"]
+[ext_resource type="Texture2D" uid="uid://d2ys60al2dn5v" path="res://sprites/hover2.png" id="5_61f8s"]
+[ext_resource type="Texture2D" uid="uid://mi0fm4dh5uf4" path="res://sprites/restart1.png" id="6_rftc2"]
+[ext_resource type="Texture2D" uid="uid://c8rdbxff2ickn" path="res://sprites/restart2.png" id="7_61f8s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_37p78"]
 
@@ -25,3 +31,31 @@ offset_right = 313.0
 offset_bottom = 55.0
 theme_override_font_sizes/font_size = 30
 text = "High Score: 0"
+
+[node name="SwitchButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(52, 461.99994)
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("2_a2258")
+texture_pressed = ExtResource("3_1xsix")
+visibility_mode = 1
+
+[node name="HoverButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(933, 461)
+scale = Vector2(1.7, 1.7)
+texture_normal = ExtResource("4_rftc2")
+texture_pressed = ExtResource("5_61f8s")
+visibility_mode = 1
+
+[node name="RestartButton" type="TouchScreenButton" parent="."]
+visible = false
+position = Vector2(3, 44)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("6_rftc2")
+texture_pressed = ExtResource("7_61f8s")
+visibility_mode = 1
+
+[connection signal="pressed" from="SwitchButton" to="." method="_on_switch_button_pressed"]
+[connection signal="pressed" from="HoverButton" to="." method="_on_hover_button_pressed"]
+[connection signal="released" from="RestartButton" to="." method="_on_restart_button_released"]
