@@ -38,12 +38,114 @@ theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
 text = "Controls"
 
-[node name="Display" type="Label" parent="."]
-offset_left = 585.0
-offset_top = 29.0
-offset_right = 1102.0
-offset_bottom = 621.0
+[node name="ref" type="Label" parent="."]
+visible = false
+offset_left = 920.0
+offset_top = 28.0
+offset_right = 1477.0
+offset_bottom = 620.0
 theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
 theme_override_font_sizes/font_size = 40
-text = "Arrow keys (up/down) and Z to select something"
+text = "text1
+text2
+text3
+text4
+text5
+text6
+text7
+text8"
+autowrap_mode = 2
+
+[node name="show_colors" type="Button" parent="."]
+offset_left = 528.0
+offset_top = 510.0
+offset_right = 1133.0
+offset_bottom = 630.0
+theme_override_colors/font_color = Color(0.49441028, 0.99999994, 0.6362569, 1)
+theme_override_font_sizes/font_size = 30
+text = "CLICK TO SHOW SUPPORTED COLORS
+FOR THE LAST 5 SETTINGS"
+
+[node name="input_frequency" type="LineEdit" parent="."]
+offset_left = 1022.0
+offset_top = 30.0
+offset_right = 1142.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "0.8"
+
+[node name="input_block_speed" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_top = 57.0
+offset_right = 120.0
+offset_bottom = 107.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "300"
+
+[node name="input_player_speed" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 117.0
+offset_right = 121.0
+offset_bottom = 167.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "300"
+
+[node name="input_font_0_9" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = -99.0
+offset_top = 174.0
+offset_right = 121.0
+offset_bottom = 224.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "GHOST_WHITE"
+
+[node name="input_font_10_19" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = -98.0
+offset_top = 235.0
+offset_right = 121.0
+offset_bottom = 285.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "SKY_BLUE"
+
+[node name="input_font_20_49" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = -100.0
+offset_top = 291.0
+offset_right = 120.0
+offset_bottom = 341.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "LAWN_GREEN"
+
+[node name="input_font_50_99" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = -104.0
+offset_top = 349.0
+offset_right = 120.0
+offset_bottom = 399.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "YELLOW"
+
+[node name="input_font_100" type="LineEdit" parent="input_frequency"]
+layout_mode = 0
+offset_left = -105.0
+offset_top = 408.0
+offset_right = 120.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 30
+placeholder_text = "CRIMSON"
+
+[node name="Display" type="Label" parent="."]
+offset_left = 528.0
+offset_top = 25.0
+offset_right = 1085.0
+offset_bottom = 617.0
+theme_override_colors/font_color = Color(0.31764707, 1, 1, 1)
+theme_override_font_sizes/font_size = 40
+text = "KEYBOARD
+Arrow keys (up/down) and Z to select something
+
+CONTROLLER
+Left joystick (up/down) or D-Pad (up/down) and A to select something"
 autowrap_mode = 2

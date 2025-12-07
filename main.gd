@@ -16,6 +16,10 @@ func _process(delta):
 	#_block_mover()
 	if Input.is_action_just_released("restart"):
 		new_game()
+	
+	if Input.is_action_just_released("go_to_menu"):
+		get_tree().change_scene_to_file("res://menu.tscn")
+	
 	if($Background.position.x <= -950):
 		$Background.position.x = 2500
 	else:
@@ -81,6 +85,6 @@ func game_over():
 		high_score = score
 	$Stopwatch.stop()
 	$BlockTimer.stop()
-	$HUD/ScoreLabel.text = "GAME OVER\nPress ENTER (or RT on controller)\nto try again"
+	$HUD/ScoreLabel.text = "GAME OVER\nENTER/RT - try again\nESCAPE/LT - back to menu"
 	$LevelTheme.stop()
 	$DeathSong.play()
