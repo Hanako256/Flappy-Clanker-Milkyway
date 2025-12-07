@@ -1,5 +1,8 @@
 extends CanvasLayer
 var index = 0
+@export var set_block_frequency = 0.8
+@export var set_block_speed = 300
+@export var set_player_velocity = 300
 
 func _ready():
 	$Cursor2.scale = $Start.get_minimum_size()
@@ -29,10 +32,18 @@ func _process(delta):
 			get_tree().change_scene_to_file("res://main.tscn")
 		if (index == 1):
 			$input_frequency.visible = true
-			$show_colors.visible = true
+			#$show_colors.visible = true
 		else:
 			$input_frequency.visible = false
 			$show_colors.visible = false
+	
+	if (index == 1):
+		set_block_frequency = $input_frequency.text
+		set_block_speed = $input_frequency/input_block_speed.text
+		set_player_velocity = $input_frequency/input_player_speed.text
+	
+	if Input.is_key_pressed(KEY_X):
+		print(set_block_frequency, "\n", set_block_speed, "\n", set_player_velocity)
 	$Cursor2.scale = x.get_minimum_size()
 	$Cursor2.position = x.position
 	

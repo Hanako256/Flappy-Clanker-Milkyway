@@ -57,6 +57,7 @@ text8"
 autowrap_mode = 2
 
 [node name="show_colors" type="Button" parent="."]
+visible = false
 offset_left = 528.0
 offset_top = 510.0
 offset_right = 1133.0
@@ -92,6 +93,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "300"
 
 [node name="input_font_0_9" type="LineEdit" parent="input_frequency"]
+visible = false
 layout_mode = 0
 offset_left = -99.0
 offset_top = 174.0
@@ -101,6 +103,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "GHOST_WHITE"
 
 [node name="input_font_10_19" type="LineEdit" parent="input_frequency"]
+visible = false
 layout_mode = 0
 offset_left = -98.0
 offset_top = 235.0
@@ -110,6 +113,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "SKY_BLUE"
 
 [node name="input_font_20_49" type="LineEdit" parent="input_frequency"]
+visible = false
 layout_mode = 0
 offset_left = -100.0
 offset_top = 291.0
@@ -119,6 +123,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "LAWN_GREEN"
 
 [node name="input_font_50_99" type="LineEdit" parent="input_frequency"]
+visible = false
 layout_mode = 0
 offset_left = -104.0
 offset_top = 349.0
@@ -128,6 +133,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "YELLOW"
 
 [node name="input_font_100" type="LineEdit" parent="input_frequency"]
+visible = false
 layout_mode = 0
 offset_left = -105.0
 offset_top = 408.0
