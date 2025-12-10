@@ -9,6 +9,8 @@ func _ready():
 	$Cursor2.position = $Start.position
 	$input_frequency.visible = false
 	$show_colors.visible = false
+	if (DisplayServer.is_touchscreen_available()):
+		get_tree().change_scene_to_file("res://mobile_menu.tscn")
 
 func _process(delta):
 	var buttons = [$Start, $Settings, $Controls]

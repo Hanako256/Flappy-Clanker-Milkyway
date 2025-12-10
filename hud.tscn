@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2opd5ot2w7vf"]
+[gd_scene load_steps=11 format=3 uid="uid://c2opd5ot2w7vf"]
 
 [ext_resource type="Script" uid="uid://rlxxxlp4dg0y" path="res://hud.gd" id="1_37p78"]
 [ext_resource type="Texture2D" uid="uid://c8bf805f8eydc" path="res://sprites/jump1.png" id="2_a2258"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://d2ys60al2dn5v" path="res://sprites/hover2.png" id="5_61f8s"]
 [ext_resource type="Texture2D" uid="uid://mi0fm4dh5uf4" path="res://sprites/restart1.png" id="6_rftc2"]
 [ext_resource type="Texture2D" uid="uid://c8rdbxff2ickn" path="res://sprites/restart2.png" id="7_61f8s"]
+[ext_resource type="Texture2D" uid="uid://tibgjrveqmlr" path="res://sprites/to_menu1.png" id="8_g10ll"]
+[ext_resource type="Texture2D" uid="uid://clulbi1ax6esm" path="res://sprites/to_menu2.png" id="9_gpiub"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_37p78"]
 
@@ -33,27 +35,31 @@ theme_override_font_sizes/font_size = 30
 text = "High Score: 0"
 
 [node name="SwitchButton" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(52, 461.99994)
+position = Vector2(45, 504.99997)
 scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("2_a2258")
 texture_pressed = ExtResource("3_1xsix")
 visibility_mode = 1
 
 [node name="HoverButton" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(933, 461)
+position = Vector2(957.99994, 502.99997)
 scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("4_rftc2")
 texture_pressed = ExtResource("5_61f8s")
 visibility_mode = 1
 
 [node name="RestartButton" type="TouchScreenButton" parent="."]
-visible = false
-position = Vector2(3, 44)
+position = Vector2(13, 49)
 scale = Vector2(1.2, 1.2)
 texture_normal = ExtResource("6_rftc2")
 texture_pressed = ExtResource("7_61f8s")
+visibility_mode = 1
+
+[node name="toMenuButton" type="TouchScreenButton" parent="."]
+position = Vector2(997.00006, 30.000002)
+scale = Vector2(1.2, 1.2)
+texture_normal = ExtResource("8_g10ll")
+texture_pressed = ExtResource("9_gpiub")
 visibility_mode = 1
 
 [connection signal="pressed" from="SwitchButton" to="." method="_on_switch_button_pressed"]
