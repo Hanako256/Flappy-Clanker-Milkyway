@@ -1,22 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://uh5mj5fps80x"]
+[gd_scene load_steps=6 format=3 uid="uid://uh5mj5fps80x"]
 
 [ext_resource type="Texture2D" uid="uid://dy4abo83sjdcm" path="res://sprites/menu bg.png" id="1_asarp"]
 [ext_resource type="Texture2D" uid="uid://bl32t181r8dv5" path="res://sprites/start.png" id="1_gym6f"]
+[ext_resource type="Script" uid="uid://cbxdomhx1ipvc" path="res://mobile_menu.gd" id="1_i441b"]
 [ext_resource type="Texture2D" uid="uid://y0ckvwe7tl44" path="res://sprites/start2.png" id="2_r67a6"]
 [ext_resource type="Texture2D" uid="uid://6x0y4ox80ou8" path="res://sprites/logo.png" id="4_i441b"]
 
 [node name="MobileMenu" type="CanvasLayer"]
+script = ExtResource("1_i441b")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
 texture = ExtResource("1_asarp")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(386, 428)
+position = Vector2(425, 428)
 texture_normal = ExtResource("1_gym6f")
 texture_pressed = ExtResource("2_r67a6")
 
+[node name="scaleUp" type="Timer" parent="TouchScreenButton"]
+wait_time = 0.009999999999999998
+autostart = true
+
 [node name="logo" type="Sprite2D" parent="."]
-position = Vector2(539.99994, 248.99998)
+position = Vector2(574, 248.99998)
 scale = Vector2(1.7, 1.7)
 texture = ExtResource("4_i441b")
+
+[connection signal="timeout" from="TouchScreenButton/scaleUp" to="." method="_on_scale_up_timeout"]

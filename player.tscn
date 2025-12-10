@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpi0lsduab1r4"]
+[gd_scene load_steps=10 format=3 uid="uid://bpi0lsduab1r4"]
 
 [ext_resource type="Script" uid="uid://dxtyob04vigya" path="res://player.gd" id="1_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bot38nikulcco" path="res://sprites/CyberPlayerIdle1.png" id="2_2hs0m"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://bkqt3onirrvrf" path="res://sprites/CyberPlayerJump1.png" id="5_b26j0"]
 [ext_resource type="Texture2D" uid="uid://pl1eenlv0try" path="res://sprites/CyberPlayerJump2.png" id="6_n7ghd"]
 [ext_resource type="AudioStream" uid="uid://cr15b4lb1uomv" path="res://audio/sound effect.mp3" id="7_1jxqw"]
-[ext_resource type="Texture2D" uid="uid://cwkicoax1upgf" path="res://sprites/line.png" id="9_b26j0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
 animations = [{
@@ -63,10 +62,6 @@ shape = SubResource("CapsuleShape2D_1jxqw")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("7_1jxqw")
-
-[node name="Line" type="Sprite2D" parent="."]
-texture = ExtResource("9_b26j0")
-centered = false
 
 [node name="Marker2D" type="Marker2D" parent="."]
 

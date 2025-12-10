@@ -13,11 +13,11 @@ func _ready():
 		get_tree().change_scene_to_file("res://mobile_menu.tscn")
 
 func _process(delta):
-	var buttons = [$Start, $Settings, $Controls]
-	var text = ["", "block spawn frequency:\nblock moving speed:\nplayer speed:\nfont color 0-9:\nfont color 10-19:\nfont color 20-49\n font color 50-99\nfont color 100+", "KEYBOARD\nW/SPACE - Switch vertical direction\nS - Hover for 0.5 seconds\nEnter - Restart game\n\nCONTROLLER\nX - Switch vertical direction\nLB - Hover for 0.5 seconds\nRT - Restart game"]
+	var buttons = [$Start, $Controls]
+	var text = ["", "KEYBOARD\nW/SPACE - Switch vertical direction\nS - Hover for 0.5 seconds\nEnter - Restart game\n\nCONTROLLER\nX - Switch vertical direction\nLB - Hover for 0.5 seconds\nRT - Restart game"]
 	var x = buttons[index]
 	if Input.is_action_just_pressed("menu_down"):
-		if(index < 2):
+		if(index < 1):
 			index = index + 1
 		else:
 			index = 0
@@ -26,18 +26,18 @@ func _process(delta):
 		if  (index > 0):
 			index = index - 1
 		else:
-			index = 2
+			index = 1
 	
 	if Input.is_action_just_pressed("menu_select"):
 		$Display.text = text[index]
 		if (index == 0):
 			get_tree().change_scene_to_file("res://main.tscn")
-		if (index == 1):
-			$input_frequency.visible = true
+		#if (index == 1):
+			#$input_frequency.visible = true
 			#$show_colors.visible = true
-		else:
-			$input_frequency.visible = false
-			$show_colors.visible = false
+		#else:
+			#$input_frequency.visible = false
+			#$show_colors.visible = false
 	
 	if (index == 1):
 		set_block_frequency = $input_frequency.text

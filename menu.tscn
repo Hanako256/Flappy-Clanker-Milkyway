@@ -64,6 +64,7 @@ text = "CLICK TO SHOW SUPPORTED COLORS
 FOR THE LAST 5 SETTINGS"
 
 [node name="input_frequency" type="LineEdit" parent="."]
+visible = false
 offset_left = 1022.0
 offset_top = 30.0
 offset_right = 1142.0

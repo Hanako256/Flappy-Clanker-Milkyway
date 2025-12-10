@@ -9,9 +9,6 @@ func _ready():
 	screenSize = get_viewport_rect().size
 	$Animation.play("default")
 	velocity = (Vector2.ZERO)
-	$Marker2D.position.x = $Animation.position.x + 60
-	$Marker2D.position.y = $Animation.position.y - 10
-	$Line.position = $Marker2D.position
 
 func _process(delta):
 	#if Input.is_action_just_pressed("jump"):
@@ -24,15 +21,18 @@ func _process(delta):
 		#velocity.y += (jumpStrength * 1.5) * delta
 	if Input.is_action_just_pressed("switch"):
 		$JumpSound.play()
-		$Animation.play("jump")
 		#print($Animation.position.y)
 		#$AnimationTimer.start(0.5)
 		if(velocity.y >= 0):
 			velocity.y = -jumpStrength
+			$Animation.play("jump")
+			
 		else:
+			$Animation.play("default")
 			velocity.y = jumpStrength
 	if Input.is_action_just_pressed("hover"):
 		$Timer.start()
+		$Animation.play("default")
 		velocity.y = 0
 	#if Input.is_action_just_pressed("hover"):
 		##$Line.scale.y = sqrt(($Animation.position.x - $Cursor.position.x)*($Animation.position.x - $Cursor.position.x) + ($Animation.position.y - $Cursor.position.y)*($Animation.position.y - $Cursor.position.y))
